@@ -11,6 +11,7 @@ export function HeroSection() {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                 Simplify Your Strata Management
               </h1>
+              <img src="/building.png" alt="Banner" className="w-full h-auto" />
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 The all-in-one platform for property managers, strata committees, and owners to streamline operations
                 and improve communication.
