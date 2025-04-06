@@ -11,11 +11,11 @@ export async function POST(req: NextRequest) {
   })
 }
 
-
 export async function GET() {
   return NextResponse.json({
     message: "Use POST to submit a maintenance issue. Include username and description in JSON body."
   })
 }
+
 
 
