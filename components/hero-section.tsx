@@ -1,3 +1,5 @@
+
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -28,18 +30,8 @@ export function HeroSection() {
               </Link>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="relative w-full h-[400px] overflow-hidden rounded-lg">
-              <img
-                src="/placeholder.svg?height=400&width=600"
-                alt="Dashboard preview"
-                className="object-cover w-full h-full"
-              />
-            </div>
-          </div>
         </div>
       </div>
     </section>
   )
 }
-
