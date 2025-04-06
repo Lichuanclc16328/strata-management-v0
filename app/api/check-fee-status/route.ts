@@ -9,7 +9,7 @@ export async function GET(req: NextRequest) {
   const mockDatabase: Record<string, boolean> = {
     "101": true,
     "102": false,
-    "203": true
+    "203": true,
   }
 
   const paid = mockDatabase[unit || ""] ?? null
@@ -21,6 +21,6 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     unit,
     paid,
-    message: paid ? "Fee is paid ✅" : "Fee is unpaid ❌"
+    message: paid ? "Fee is paid ✅" : "Fee is unpaid ❌",
   })
 }
