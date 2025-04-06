@@ -1,13 +1,12 @@
 {
-    "version": 2,
-    "buildCommand": "npm run build",
-    "outputDirectory": ".next",
-    "regions": ["syd1"],
-    "crons": [
-      {
-        "path": "/api/ping",
-        "schedule": "0 9 * * *"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "regions": ["syd1"],
+  "crons": [
+    {
+      "path": "/api/ping",
+      "schedule": "0 9 * * *"
+    }
+  ]
+}
