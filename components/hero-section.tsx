@@ -1,13 +1,12 @@
 
-
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-white to-muted/50">
-      <div className="container max-w-3xl mx-auto px-4 md:px-6">
-        <div className="flex flex-col items-center text-center space-y-6">
+      <div className="flex justify-center px-4 md:px-6">
+        <div className="max-w-3xl w-full flex flex-col items-center text-center space-y-6">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
             Simplify Your Strata Management
           </h1>
