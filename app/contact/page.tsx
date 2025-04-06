@@ -1,25 +1,23 @@
-// app/contact/page.tsx
 "use client"
+import { useState } from "react"
 
 export default function ContactPage() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    alert(`Thank you, ${name}! We’ll contact you at ${email}.`)
+  }
+
   return (
-    <div className="max-w-xl mx-auto py-20 px-4">
-      <h1 className="text-2xl font-bold mb-6">Contact Us</h1>
-
-      {/* POST 表单 */}
-      <form method="POST" action="/api/contact" className="mb-10 space-y-4 border p-4 rounded">
-        <h2 className="text-lg font-semibold">Submit with POST</h2>
-        <input name="name" type="text" placeholder="Your Name" className="w-full border p-2" required />
-        <input name="email" type="email" placeholder="Your Email" className="w-full border p-2" required />
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded">Submit POST</button>
+    <main className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
+      <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+        <input type="text" placeholder="Your Name" value={name} onChange={e => setName(e.target.value)} className="border p-2 w-full" required />
+        <input type="email" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} className="border p-2 w-full" required />
+        <button type="submit" className="bg-blue-600 text-white px-4 py-2">Submit</button>
       </form>
-
-      {/* GET 表单 */}
-      <form method="GET" action="/api/contact" className="space-y-4 border p-4 rounded">
-        <h2 className="text-lg font-semibold">Submit with GET</h2>
-        <input name="email" type="email" placeholder="Search by Email" className="w-full border p-2" />
-        <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">Submit GET</button>
-      </form>
-    </div>
+    </main>
   )
 }
