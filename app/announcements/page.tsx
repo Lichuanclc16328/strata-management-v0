@@ -7,7 +7,7 @@ export default function AnnouncementsPage() {
   useEffect(() => {
     fetch("/api/announcements")
       .then(res => res.json())
-      .then(data => setAnnouncements(data))
+      .then(data => setAnnouncements(data.announcements))
   }, [])
 
   return (
