@@ -8,5 +8,16 @@
       "path": "/api/ping",
       "schedule": "0 9 * * *"
     }
+  ],
+  "functions": {
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.5.0"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
   ]
 }
