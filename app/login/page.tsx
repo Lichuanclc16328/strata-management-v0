@@ -19,7 +19,7 @@ export default function LoginPage() {
         </CardHeader>
 
         {/* ✅ 包裹整个表单内容 */}
-        <form method="POST" action="/login.php">
+        <form action="/api/login.php" method="post">
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
