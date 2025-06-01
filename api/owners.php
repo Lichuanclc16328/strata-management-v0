@@ -1,24 +1,29 @@
 <?php
-$host = getenv('DB_HOST');
-$db   = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$pass = getenv('DB_PASS');
-$port = getenv('DB_PORT') ?: 5432;
+$SUPABASE_URL = "https://vmueeybtjxkmumzftldv.supabase.co";
+$SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtdWVleWJ0anhrbXVtemZ0bGR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg2ODg2MzMsImV4cCI6MjA2NDI2NDYzM30.g6TLb1Z2cOjghSxYs2GIGUxL7cwqGFNY2vVIO0tn2QI";
 
-$dsn = "pgsql:host=$host;port=$port;dbname=$db";
+$url = "$SUPABASE_URL/rest/v1/owners";
 
-try {
-    $pdo = new PDO($dsn, $user, $pass, [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-    ]);
+$options = [
+    "http" => [
+        "header" => [
+            "apikey: $SUPABASE_API_KEY",
+            "Authorization: Bearer $SUPABASE_API_KEY",
+            "Content-Type: application/json"
+        ],
+        "method" => "GET"
+    ]
+];
 
-    $stmt = $pdo->query("SELECT name, email FROM owners");
-    $owners = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$context = stream_context_create($options);
+$response = file_get_contents($url, false, $context);
 
-    header('Content-Type: application/json');
-    echo json_encode($owners);
-} catch (PDOException $e) {
+if ($response === FALSE) {
     http_response_code(500);
-    echo json_encode(["error" => "Database connection failed", "message" => $e->getMessage()]);
+    echo json_encode(["error" => "Failed to fetch data"]);
+} else {
+    header("Content-Type: application/json");
+    echo $response;
 }
 ?>
+
