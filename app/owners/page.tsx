@@ -4,7 +4,7 @@ import { createClient } from '@supabase/supabase-js'
 import { useEffect, useState } from 'react'
 
 const supabase = createClient(
-  'https://vmueeybtjxkqumzftldv.supabase.co',
+  'https://vmueeybtjxkmumzftldv.supabase.co',
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtdWVleWJ0anhrbXVtemZ0bGR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDg2ODg2MzMsImV4cCI6MjA2NDI2NDYzM30.g6TLb1Z2cOjghSxYs2GIGUxL7cwqGFNY2vVIO0tn2QI'
 )
 
